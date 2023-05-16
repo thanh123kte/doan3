@@ -10,8 +10,8 @@ if (!$conn) {
 
 
 // Thực thi câu truy vấn để thêm dữ liệu vào bảng
-$stmt = mysqli_prepare($conn, "INSERT INTO tbl_order (order_code, order_date, order_status) VALUES (?, ?, ?)");
-mysqli_stmt_bind_param($stmt, "sss", $_GET["order_code"], $_GET["order_date"], $_GET["order_status"]);
+$stmt = mysqli_prepare($conn, "UPDATE tbl_user SET name=?, birthday=?, location=?, sdt=?, email= ? WHERE id_user=?");
+mysqli_stmt_bind_param($stmt, "ssssss", $_GET["name"], $_GET["birthday"], $_GET["location"], $_GET["sdt"], $_GET["email"], $_GET["iduser"]);
 
 if (mysqli_stmt_execute($stmt)) {
     echo "1";
